@@ -4,5 +4,10 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+![Resume](/assets/img/resume.png){: .shadow .rounded-10 w="700" h="900"}
+_click here to see the full image_
+
+---
+
+> Do you like my profile? Reach out!
+{: .prompt-info }
