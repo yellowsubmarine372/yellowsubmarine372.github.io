@@ -1,0 +1,92 @@
+<style>
+.lang-toggle {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+  border: 1px solid var(--btn-border-color, #d0d7de);
+}
+.lang-toggle button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  background: var(--card-bg, #f6f8fa);
+  color: var(--text-color, #1f2328);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+.lang-toggle button:hover {
+  background: var(--btn-hover-bg, #eaeef2);
+}
+.lang-toggle button.active {
+  background: var(--link-color, #0969da);
+  color: #fff;
+}
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+</style>
+
+<div class="lang-toggle">
+  <button id="btn-en" onclick="switchLang('en')">EN</button>
+  <button id="btn-ko" onclick="switchLang('ko')">KO</button>
+</div>
+
+<script>
+function switchLang(lang) {
+  // Switch content visibility
+  document.querySelectorAll('.lang-content').forEach(el => {
+    el.classList.remove('active');
+  });
+  document.querySelectorAll('.lang-toggle button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  const content = document.querySelector('.lang-' + lang);
+  const btn = document.getElementById('btn-' + lang);
+
+  if (content) content.classList.add('active');
+  if (btn) btn.classList.add('active');
+
+  // Filter TOC items based on selected language
+  filterTOC(lang);
+
+  localStorage.setItem('preferred-lang', lang);
+}
+
+function filterTOC(lang) {
+  // Get all TOC links
+  const tocLinks = document.querySelectorAll('#toc a, .toc a, nav[data-toggle="toc"] a, #toc-wrapper a');
+
+  tocLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+
+    const targetId = href.substring(1);
+    const targetEl = document.getElementById(targetId);
+
+    if (!targetEl) return;
+
+    // Check which language section this heading belongs to
+    const langEnSection = targetEl.closest('.lang-en');
+    const langKoSection = targetEl.closest('.lang-ko');
+
+    const listItem = link.closest('li');
+    if (!listItem) return;
+
+    if (langEnSection) {
+      listItem.style.display = (lang === 'en') ? '' : 'none';
+    } else if (langKoSection) {
+      listItem.style.display = (lang === 'ko') ? '' : 'none';
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const saved = localStorage.getItem('preferred-lang') || 'en';
+  switchLang(saved);
+});
+</script>
