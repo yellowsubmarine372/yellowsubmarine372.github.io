@@ -1,143 +1,59 @@
-/* =============================================================================
-   JEKYLL BEAR THEME - PINE FOREST AESTHETIC
-   ============================================================================= */
-/* =============================================================================
-   FONTS & IMPORTS
-   ============================================================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-
-/* =============================================================================
-   CSS CUSTOM PROPERTIES (VARIABLES)
-   ============================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
 :root {
-    /* Layout */
-    --width: 720px;
-    
-    /* Typography */
-    --font-main: 'IBM Plex Mono', monospace;
-    --font-secondary: 'IBM Plex Mono', monospace;
-    --font-monospace: 'IBM Plex Mono', monospace;
-    --font-scale: 0.9em;
-    
-    /* Spacing */
-    --spacing-xs: 5px;
-    --spacing-sm: 10px;
-    --spacing-md: 20px;
-    --spacing-lg: 40px;
-    --spacing-xl: 60px;
-    
-    /* Border radius */
-    --radius-sm: 3px;
-    --radius-md: 5px;
-    
-    /* Transitions */
-    --transition-fast: 0.2s;
-    --transition-normal: 0.3s;
-    
-    /* Z-index scale */
-    --z-dropdown: 200;
-    --z-modal: 1000;
-    
-    /* Pine Forest Theme Colors - Light Mode */
-    --background-color: #F5F7F3; /* Light pine needle mist */
-    --heading-color: #1A3025; /* Deep forest green */
-    --text-color: #0F2018; /* Dark pine shadow */
-    --link-color: #2D5016; /* Forest moss */
-    --visited-color: #1E3A11; /* Deep woodland */
-    --main-color: #4A7C59; /* Pine needle green */
-    --code-background-color: #E8EDEA; /* Frosted pine */
-    --code-color: #1A3025; /* Deep forest green */
-    --blockquote-color: #7A9B85; /* Sage green */
-    
-    /* Interactive colors derived from theme */
-    --hover-color: white;
-    --border-color: var(--blockquote-color);
-    --shadow-color: rgba(0, 0, 0, 0.18);
-    
-    /* Glow effects for interactive elements */
-    --glow-color-light: rgba(45, 80, 22, 0.3);
-    --glow-color-medium: rgba(45, 80, 22, 0.5);
+    --width: 680px;
+    --font: 'Inter', sans-serif;
+    --font-scale: 0.95em;
 }
 
-/* Dark Mode Color Overrides */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-color: #0D1B12; /* Dark pine shadow */
-        --heading-color: #C8D8CE; /* Light pine mist */
-        --text-color: #E0EADE; /* Pale forest light */
-        --link-color: #7AB069; /* Bright moss green */
-        --visited-color: #9BC490; /* Light woodland */
-        --main-color: #8BB899; /* Soft pine green */
-        --code-background-color: #1A2B1F; /* Dark evergreen */
-        --code-color: #C8D8CE; /* Light pine mist */
-        --blockquote-color: #4A6B52; /* Forest undergrowth */
-        
-        /* Dark mode glow effects */
-        --glow-color-light: rgba(122, 176, 105, 0.3);
-        --glow-color-medium: rgba(122, 176, 105, 0.5);
-    }
+* {
+    box-sizing: border-box;
 }
-
-/* =============================================================================
-   BASE STYLES
-   ============================================================================= */
 
 body {
-    font-family: var(--font-secondary);
+    font-family: var(--font);
     font-size: var(--font-scale);
+    font-weight: 300;
     margin: auto;
-    padding: var(--spacing-md);
+    padding: 40px 24px;
     max-width: var(--width);
     text-align: left;
-    background-color: var(--background-color);
+    background-color: #fff;
+    color: #000;
+    line-height: 1.6;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    line-height: 1.5;
-    color: var(--text-color);
 }
 
-/* =============================================================================
-   TYPOGRAPHY
-   ============================================================================= */
-
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-main);
-    color: var(--heading-color);
+    font-family: var(--font);
+    color: #000;
+    line-height: 1.2;
 }
 
 strong, b {
-    color: var(--heading-color);
+    color: #000;
 }
 
-/* =============================================================================
-   LINKS
-   ============================================================================= */
-
 a {
-    color: var(--link-color);
-    font-family: var(--font-main);
+    color: #000;
+    font-family: var(--font);
+    text-decoration: underline;
     cursor: pointer;
-    text-decoration: none;
-    border-bottom: 3px solid var(--main-color);
-    transition: all var(--transition-fast) ease;
 }
 
 a:hover {
-    background-color: var(--main-color);
-    color: var(--hover-color);
+    background-color: #000;
+    color: #fff;
     text-decoration: none;
 }
 
 a:visited {
-    color: var(--visited-color);
+    color: #000;
 }
 
-/* External link marker */
-a[href^="http"]:where(:not([href*="knhash.in/"])):not(:has(img))::after {
+a[href^="http"]:where(:not([href*="yellowsubmarine372.github.io"])):not(:has(img))::after {
     content: "↗";
-    font-family: var(--font-monospace);
 }
 
 .title:hover {
@@ -148,18 +64,21 @@ a[href^="http"]:where(:not([href*="knhash.in/"])):not(:has(img))::after {
     font-size: 1.5em;
 }
 
-/* =============================================================================
-   LAYOUT COMPONENTS
-   ============================================================================= */
-
 header {
-    margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-md);
-    border-bottom: 3px dotted var(--main-color);
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #000;
 }
 
 nav a {
-    margin-right: 8px;
+    margin-right: 12px;
+    text-decoration: none;
+    border-bottom: 1px solid #000;
+}
+
+nav a:hover {
+    background-color: #000;
+    color: #fff;
 }
 
 main {
@@ -167,23 +86,21 @@ main {
 }
 
 footer {
-    margin-top: var(--spacing-lg);
-    border-top: 3px dotted var(--main-color);
-    padding: 25px 0;
+    margin-top: 40px;
+    border-top: 1px solid #000;
+    padding: 20px 0;
     text-align: center;
+    font-size: 0.85em;
+    color: #666;
 }
 
 footer > span:has(a[href="https://bearblog.dev"]) {
     display: none;
 }
 
-/* =============================================================================
-   CONTENT ELEMENTS
-   ============================================================================= */
-
 hr {
     border: 0;
-    border-top: 1px dashed var(--border-color);
+    border-top: 1px solid #000;
 }
 
 img {
@@ -191,53 +108,48 @@ img {
 }
 
 blockquote {
-    border-left: 1px solid var(--blockquote-color);
-    color: var(--code-color);
-    padding-left: var(--spacing-md);
+    border-left: 3px solid #000;
+    color: #333;
+    padding-left: 20px;
     font-style: italic;
+    margin-left: 0;
 }
 
-/* =============================================================================
-   CODE & SYNTAX HIGHLIGHTING
-   ============================================================================= */
-
 code {
-    font-family: var(--font-monospace);
-    padding: 2px;
-    background-color: var(--code-background-color);
-    color: var(--code-color);
-    border-radius: var(--radius-sm);
+    font-family: 'Fira Code', 'Courier New', monospace;
+    padding: 1px 4px;
+    background-color: #f0f0f0;
+    color: #000;
+    border: 1px solid #ccc;
 }
 
 .highlight,
 .code {
-    padding: 1px 15px;
-    background-color: var(--code-background-color);
-    color: var(--code-color);
-    border-radius: var(--radius-sm);
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    color: #000;
+    border: 1px solid #ddd;
     margin-block-start: 1em;
     margin-block-end: 1em;
     overflow-x: auto;
 }
 
-/* =============================================================================
-   TABLES
-   ============================================================================= */
-
 table {
     width: 100%;
     border-spacing: 0;
+    border-collapse: collapse;
 }
 
 th, td {
     padding: 6px 13px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #000;
     font-size: 1em;
 }
 
-/* =============================================================================
-   BLOG POST LISTINGS
-   ============================================================================= */
+th {
+    background-color: #000;
+    color: #fff;
+}
 
 ul.blog-posts {
     list-style-type: none;
@@ -246,25 +158,27 @@ ul.blog-posts {
 
 ul.blog-posts li {
     display: flex;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 8px;
 }
 
 ul.blog-posts li span {
     flex: 0 0 130px;
+    color: #666;
+}
+
+ul.blog-posts li a {
+    text-decoration: none;
+    border-bottom: 1px solid #000;
 }
 
 ul.blog-posts li a:visited {
-    color: var(--visited-color);
+    color: #000;
 }
 
 i time {
     font-style: normal;
-    opacity: 0.7;
+    color: #666;
 }
-
-/* =============================================================================
-   UTILITY CLASSES
-   ============================================================================= */
 
 .inline {
     width: auto !important;
@@ -273,11 +187,16 @@ i time {
 button {
     margin: 0;
     cursor: pointer;
+    font-family: var(--font);
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
 }
 
-/* =============================================================================
-   FORM ELEMENTS
-   ============================================================================= */
+button:hover {
+    background: #333;
+}
 
 input, button, textarea, select {
     margin: 0;
@@ -286,23 +205,12 @@ input, button, textarea, select {
     font: inherit;
 }
 
-legend {
-    margin: var(--spacing-md) 0;
-    font-weight: bold;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-}
-
 input, textarea {
-    margin: 0 0 var(--spacing-sm);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    color: var(--text-color);
-    background: var(--code-background-color);
-    border: 2px solid var(--link-color);
-    border-radius: var(--radius-md);
+    margin: 0 0 10px;
+    padding: 5px 10px;
+    color: #000;
+    background: #fff;
+    border: 1px solid #000;
 }
 
 input {
@@ -313,22 +221,234 @@ textarea {
     width: 95%;
 }
 
-input[type=button], 
-input[type=submit], 
+input[type=button],
+input[type=submit],
 input[type=reset] {
-    margin: 0 0 var(--spacing-md);
-    padding: 7px;
-    font-family: var(--font-secondary);
+    margin: 0 0 20px;
+    padding: 7px 14px;
+    font-family: var(--font);
     font-weight: bold;
-    color: var(--background-color);
-    background: var(--link-color);
-    border-radius: var(--radius-md);
+    color: #fff;
+    background: #000;
     cursor: pointer;
 }
 
 ::placeholder {
-    color: var(--text-color);
-    opacity: 0.7;
+    color: #999;
 }
-      
-  
+
+/* ── Post layout ── */
+
+.post-hero {
+    margin: 2rem 0 0;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #000;
+}
+
+.post-title {
+    font-size: 1.5em;
+    line-height: 1.3;
+    margin: 0 0 0.4em;
+}
+
+.post-date {
+    display: block;
+    font-size: 0.85em;
+    color: #666;
+}
+
+.post-subtitle {
+    margin: 0.5em 0 0;
+    color: #555;
+    font-style: italic;
+    font-size: 0.95em;
+}
+
+.post-body {
+    margin-top: 2.5rem;
+}
+
+.post-body > p {
+    margin: 0 0 1.5em;
+    line-height: 1.85;
+}
+
+.post-body h2 {
+    font-size: 1.15em;
+    margin: 2.8em 0 0.7em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #ddd;
+}
+
+.post-body h3 {
+    font-size: 1.02em;
+    margin: 2em 0 0.5em;
+}
+
+.post-body h4 {
+    font-size: 0.95em;
+    margin: 1.5em 0 0.4em;
+}
+
+.post-body ul,
+.post-body ol {
+    padding-left: 1.6em;
+    margin: 0 0 1.4em;
+}
+
+.post-body li {
+    margin-bottom: 0.4em;
+    line-height: 1.75;
+}
+
+.post-body li > ul,
+.post-body li > ol {
+    margin-bottom: 0;
+    margin-top: 0.3em;
+}
+
+.post-body blockquote {
+    margin: 1.8em 0;
+    padding: 0.8em 1.2em;
+}
+
+.post-body blockquote p {
+    margin: 0;
+}
+
+.post-body hr {
+    margin: 2.8em 0;
+}
+
+.post-body table {
+    margin: 1.8em 0;
+    font-size: 0.88em;
+}
+
+.post-body img {
+    display: block;
+    margin: 2em auto;
+    max-width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+}
+
+.post-body pre {
+    margin: 1.5em 0;
+}
+
+.post-body pre code {
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.post-back {
+    display: inline-block;
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #000;
+    width: 100%;
+    font-size: 0.9em;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.post-back:hover {
+    background: none;
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* ── Dark mode ── */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #000;
+        color: #fff;
+    }
+    h1, h2, h3, h4, h5, h6, strong, b {
+        color: #fff;
+    }
+    a {
+        color: #fff;
+    }
+    a:hover {
+        background-color: #fff;
+        color: #000;
+    }
+    a:visited {
+        color: #ccc;
+    }
+    nav a {
+        border-bottom-color: #fff;
+    }
+    header {
+        border-bottom-color: #fff;
+    }
+    footer {
+        border-top-color: #fff;
+        color: #999;
+    }
+    hr {
+        border-top-color: #fff;
+    }
+    blockquote {
+        border-left-color: #fff;
+        color: #ccc;
+    }
+    code {
+        background-color: #111;
+        color: #fff;
+        border-color: #333;
+    }
+    .highlight, .code {
+        background-color: #111;
+        color: #fff;
+        border-color: #333;
+    }
+    th {
+        background-color: #fff;
+        color: #000;
+    }
+    th, td {
+        border-color: #fff;
+    }
+    ul.blog-posts li span {
+        color: #999;
+    }
+    ul.blog-posts li a {
+        border-bottom-color: #fff;
+    }
+    i time {
+        color: #999;
+    }
+    input, textarea {
+        color: #fff;
+        background: #000;
+        border-color: #fff;
+    }
+    input[type=button], input[type=submit], input[type=reset] {
+        color: #000;
+        background: #fff;
+    }
+    button {
+        background: #fff;
+        color: #000;
+    }
+    .post-hero {
+        border-bottom-color: #fff;
+    }
+    .post-date {
+        color: #999;
+    }
+    .post-subtitle {
+        color: #aaa;
+    }
+    .post-body h2 {
+        border-bottom-color: #333;
+    }
+    .post-back {
+        border-top-color: #fff;
+    }
+}

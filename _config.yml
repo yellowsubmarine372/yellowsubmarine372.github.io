@@ -1,15 +1,6 @@
-###########
-# site.title
-
-title: jekyllBear
-description: a minimal, text focused blog theme
-# baseurl: "/jekyllBear" # the subpath of your site, e.g. /blog/
-url: "https://knhash.in/jekyllBear" # the base hostname & protocol for your site
-# host: 0.0.0.0
-
-
-#########################
-# more settings
+title: yellowsubmarine372
+description: writings
+url: "https://yellowsubmarine372.github.io"
 
 plugins:
   - jekyll-redirect-from
@@ -28,10 +19,6 @@ compress_html:
   ignore:
     envs: []
 
-# sass:
-#   sass_dir: css
-#   style:    compressed
-
 collections:
   my_tags:
     output: true
@@ -40,29 +27,25 @@ defaults:
   -
     scope:
       path: ""
+      type: posts
+    values:
+      layout: post
+  -
+    scope:
+      path: ""
       type: my_tags
     values:
       layout: tagged
 
-# baseurl: ""
 permalink: /blog/:slug
-timezone: America/New_York
+timezone: Asia/Seoul
 future: false
 
 exclude:
-- README.md
-- LICENSE.md
+  - README.md
+  - LICENSE.md
+  - vendor
 
-exclude: [vendor]
-
-Blog: /blog
-Life: /life
-
-# Add general links to site pages here
 links:
-  # Resume: /assets/resume.pdf
-  
-
-# Add links for more focus here
-special_links:
-  # "Search": https://duckduckgo.com
+  Blog: /
+  About: /about
