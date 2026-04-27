@@ -41,7 +41,7 @@ LangChain, Prompt Engineering
 
 ## Career
 
-**wrtn technologiesr** — AI Engineer
+**wrtn technologies** — AI Engineer
 _August 2024 – May 2025_
 
 Designed and operated end-to-end LLM-powered data pipelines (DB integration, real-time processing, migration) and conducted iterative AI model experiments including prompt tuning and fine-tuning.
